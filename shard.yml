@@ -1,0 +1,9 @@
+name: cabochon
+version: 0.1.0
+
+authors:
+  - san-smith <san-smith@mail.ru>
+
+crystal: 0.30.1
+
+license: MIT
