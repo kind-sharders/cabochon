@@ -23,7 +23,7 @@ module Cabochon
       return "#{left}#{string}#{right}"
     end
 
-    # Return true if all characters in the string are digits and there is at least one character, false otherwise.
+    # Returns true if all characters in the string are digits and there is at least one character, false otherwise.
     # *str* : The checked string.
     def digit?(str : String) : Bool
       return false if str.empty?
@@ -40,6 +40,10 @@ module Cabochon
       return is_digit
     end
 
-
+    # Returns true if first character capitalized and the rest lowercased.
+    # *str* : The checked string
+    def capitalize?(str : String) : Bool 
+      return str.capitalize == str
+    end
   end
 end

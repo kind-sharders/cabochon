@@ -49,4 +49,17 @@ describe StringUtils do
     digit?("123abc").should eq(false)
   end
 
+  it "capitalize? returns false if string is not capitalized" do
+    capitalize?("abc").should eq(false)
+    capitalize?("ABC").should eq(false)
+    capitalize?("Abc Abc").should eq(false)
+    capitalize?("Abc ABC").should eq(false)
+  end
+
+  it "capitalize? returns true if string is capitalized" do
+    capitalize?("").should eq(true)
+    capitalize?("Abc").should eq(true) 
+    capitalize?("Abc abc").should eq(true)
+  end
+
 end
