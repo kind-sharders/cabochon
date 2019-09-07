@@ -22,5 +22,24 @@ module Cabochon
 
       return "#{left}#{string}#{right}"
     end
+
+    # Return true if all characters in the string are digits and there is at least one character, false otherwise.
+    # *str* : The checked string.
+    def digit?(str : String) : Bool
+      return false if str.empty?
+
+      is_digit = true
+      i = 0
+      while i < str.size 
+        if !(48..57).includes?(str[i].ord)
+          is_digit = false
+          break
+        end
+        i += 1
+      end
+      return is_digit
+    end
+
+
   end
 end

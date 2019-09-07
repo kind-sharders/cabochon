@@ -33,5 +33,20 @@ describe StringUtils do
     pad(test_string, 11, "-=").should eq("-=-=test-=-")
   end
 
+  it "digit? with empty string returns false" do
+    digit?("").should eq(false)
+  end
+
+  it "digit? with string without numbers returns false" do
+    digit?("test string").should eq(false)
+  end
+
+  it "digit? with numbers only return true" do
+    digit?("123456").should eq(true)
+  end
+
+  it "digit? with number and any characters returns false" do
+    digit?("123abc").should eq(false)
+  end
 
 end
