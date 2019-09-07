@@ -3,9 +3,13 @@ module Cabochon
     # Pads string on the left and right sides if it's shorter than length.
     # Padding characters are truncated if they can't be evenly divided by length.
     #
-    # *string* : The string to pad.
-    # *length* : The padding length.
-    # *chars* : The string used as padding.
+    # ```
+    #  pad("test", 8, "-=") # => "-=test-="
+    # ```
+    #
+    # *string*: The string to pad.
+    # *length*: The padding length.
+    # *chars*: The string used as padding.
     def pad(string : String = "", length : Int = 0, chars : String = " ") : String
       return string if length <= 0
         
@@ -24,7 +28,13 @@ module Cabochon
     end
 
     # Returns true if all characters in the string are digits and there is at least one character, false otherwise.
-    # *str* : The checked string.
+    # ```
+    # digit?("") # => fasle
+    # digit?("abc") # => fasle
+    # digit?("123") # => true
+    # ```
+    #
+    # *str*: The checked string.
     def digit?(str : String) : Bool
       return false if str.empty?
 
@@ -38,10 +48,27 @@ module Cabochon
       return is_digit
     end
 
-    # Returns true if first character capitalized and the rest lowercased.
-    # *str* : The checked string
-    def capitalize?(str : String) : Bool 
+    # Returns true if first character capitalized and the rest lowercased and there is at least one cased character, false otherwise.
+    #
+    # *str*: The checked string
+    def capitalize?(str : String) : Bool
+      return false if str.empty?
       return str.capitalize == str
     end
+
+    # Return true if all cased characters in the string are lowercase and there is at least one cased character, false otherwise.
+    # 
+    # ```
+    # downcase?("") # => false
+    # downcase?("Abc") # => false
+    # downcase?("abc") # => true
+    # ```
+    #
+    # *str*: The checked string.
+    def downcase?(str : String) : Bool
+      return false if str.empty?
+      return str.downcase == str
+    end
+
   end
 end

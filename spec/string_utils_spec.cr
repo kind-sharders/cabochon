@@ -30,6 +30,7 @@ describe StringUtils do
     pad(test_string, 7, "-").should eq("--test-")
     pad(test_string, 6, "-=").should eq("-test-")
     pad(test_string, 7, "-=").should eq("-=test-")
+    pad(test_string, 8, "-=").should eq("-=test-=")
     pad(test_string, 11, "-=").should eq("-=-=test-=-")
   end
 
@@ -50,6 +51,7 @@ describe StringUtils do
   end
 
   it "capitalize? returns false if string is not capitalized" do
+    capitalize?("").should eq(false)
     capitalize?("abc").should eq(false)
     capitalize?("ABC").should eq(false)
     capitalize?("Abc Abc").should eq(false)
@@ -57,9 +59,23 @@ describe StringUtils do
   end
 
   it "capitalize? returns true if string is capitalized" do
-    capitalize?("").should eq(true)
     capitalize?("Abc").should eq(true) 
     capitalize?("Abc abc").should eq(true)
+    capitalize?("A").should eq(true)
+  end
+
+  it "downcase? return false if not all cased characters in the string are lowercase" do
+    downcase?("").should eq(false)
+    downcase?("Abc").should eq(false)
+    downcase?("abC").should eq(false)
+    downcase?("ABC").should eq(false)
+  end
+
+  it "downcase? return true if all cased characters in the string are lowercase" do
+    downcase?("abc").should eq(true)
+    downcase?("abc 123").should eq(true)
+    downcase?("    ").should eq(true)
+    downcase?("a").should eq(true)
   end
 
 end
