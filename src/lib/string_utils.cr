@@ -29,13 +29,11 @@ module Cabochon
       return false if str.empty?
 
       is_digit = true
-      i = 0
-      while i < str.size 
-        if !(48..57).includes?(str[i].ord)
+      str.each_char do |ch|
+        if !(48..57).includes?(ch.ord)
           is_digit = false
           break
         end
-        i += 1
       end
       return is_digit
     end
