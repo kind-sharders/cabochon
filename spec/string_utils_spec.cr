@@ -73,6 +73,8 @@ describe StringUtils do
     downcase?("Abc").should eq(false)
     downcase?("abC").should eq(false)
     downcase?("ABC").should eq(false)
+    downcase?('A').should eq(false)
+    downcase?('\0').should eq(false)
   end
 
   it "downcase? return true if all cased characters in the string are lowercase" do
@@ -80,6 +82,15 @@ describe StringUtils do
     downcase?("abc 123").should eq(true)
     downcase?("    ").should eq(true)
     downcase?("a").should eq(true)
+    downcase?('a').should eq(true)
   end
+
+  # it "swapcase returns a copy of the string with uppercase characters converted to lowercase and vice versa" do
+  #   swapcase("").should eq("")
+  #   swapcase("abc").should eq("ABC")
+  #   swapcase("ABC").should eq("abc")
+  #   swapcase("aBc").should eq("AbC")
+  #   swapcase("123").should eq("123")
+  # end
 
 end

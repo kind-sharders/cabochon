@@ -47,8 +47,7 @@ module Cabochon
     #
     # *str*: The checked string
     def capitalize?(str : String) : Bool
-      return false if str.empty?
-      return str.capitalize == str
+      return !str.empty? && str.capitalize == str
     end
 
     # Return true if all cased characters in the string are lowercase and there is at least one cased character, false otherwise.
@@ -61,9 +60,18 @@ module Cabochon
     #
     # *str*: The checked string.
     def downcase?(str : String) : Bool
-      return false if str.empty?
-      return str.downcase == str
+      return !str.empty? && str.downcase == str
     end
+
+    def downcase?(ch : Char) : Bool
+      return ch.lowercase?
+    end
+
+    # Return a copy of the string with uppercase characters converted to lowercase and vice versa.
+    # *str*: The checked string.
+    # def swapcase(str : String) : String
+      
+    # end
 
   end
 end
