@@ -48,6 +48,10 @@ describe StringUtils do
 
   it "digit? with number and any characters returns false" do
     digit?("123abc").should eq(false)
+    digit?("").should eq(false)
+    digit?("12.34").should eq(false)
+    digit?("1.5e5").should eq(false)
+    digit?("-123").should eq(false)
   end
 
   it "capitalize? returns false if string is not capitalized" do

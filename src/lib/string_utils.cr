@@ -28,24 +28,19 @@ module Cabochon
     end
 
     # Returns true if all characters in the string are digits and there is at least one character, false otherwise.
+    #
     # ```
-    # digit?("") # => fasle
-    # digit?("abc") # => fasle
-    # digit?("123") # => true
+    # digit?("") # => false
+    # digit?("abc")   # => false
+    # digit?("123")   # => true
+    # digit?("12.34") # => false
+    # digit?("1.5e5") # => false
+    # digit?("-123")  # => false
     # ```
     #
     # *str*: The checked string.
     def digit?(str : String) : Bool
-      return false if str.empty?
-
-      is_digit = true
-      str.each_char do |ch|
-        if !(48..57).includes?(ch.ord)
-          is_digit = false
-          break
-        end
-      end
-      return is_digit
+      /^(\d)+$/ === str
     end
 
     # Returns true if first character capitalized and the rest lowercased and there is at least one cased character, false otherwise.
